@@ -3,6 +3,8 @@ import styles from "../allShaba/style.module.css";
 import logo from "../../img/ogo.jpg";
 import Navbars from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+
 
 
 class AllSefat extends Component{
@@ -47,11 +49,24 @@ class AllSefat extends Component{
                     {this.state.allSefat.map((value, index)=>{
                         return (
                             <div key={index} className="col-md-3">
-                                <Link to={location => `/oneSefa/id=${value.id}`} className="text-decoration-none">
+                                {['bottom'].map((placement) => (
+                                    <OverlayTrigger
+                                    key={placement}
+                                    placement={placement}
+                                    overlay={
+                                        <Tooltip id={`tooltip-${placement}`}>
+                                        Tooltip on <strong>{placement}</strong>.
+                                        </Tooltip>
+                                    }
+                                    >
+                                    <Link to={location => `/oneSefa/id=${value.id}`} className="text-decoration-none">
                                     <div className={`${styles.item} d-flex justify-content-center align-items-center`} >
                                         {value.name}
                                     </div>
-                                </Link>
+                                    </Link>
+                                    </OverlayTrigger>
+                                ))}
+                                
                             </div>
                             )
                     })} 

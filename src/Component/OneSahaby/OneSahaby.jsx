@@ -36,26 +36,26 @@ class OneSahaby extends Component{
             {id: 7, name: "أبو بكر الصديق"},
             {id: 8, name: "أبو بكر الصديق"},
             {id: 9, name: "أبو بكر الصديق"},
-            {id: 10, name: "أبو بكر الصديق"},
+            {id: 10, name: "أبو بكر الصديق"}
         ]
     }
 
-    data = ()=>{
-        this.setState({
+    // data = ()=>{
+    //     this.setState({
             
-        })
-    }
+    //     })
+    // }
 
     
     
     render(){
         
-        let data
+        let data;
         this.state.Alsahaba.map((value, index)=>{
-            if (value.id === this.props.match.params.id) {
+            if (value.id == this.props.match.params.id) {
                  data = value
-            }
-        })
+                }
+            })
 
         return(
             <Fragment>
